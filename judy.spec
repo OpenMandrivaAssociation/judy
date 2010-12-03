@@ -5,7 +5,7 @@
 Summary:	A general purpose dynamic array implemented as a C callable library
 Name:		judy
 Version:	1.0.5
-Release:	%mkrel 1
+Release:	%mkrel 2
 Group:		System/Libraries
 License:	LGPL
 URL:		http://sourceforge.net/projects/judy/
