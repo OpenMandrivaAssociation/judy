@@ -5,7 +5,7 @@
 Summary:	A general purpose dynamic array implemented as a C callable library
 Name:		judy
 Version:	1.0.5
-Release:	%mkrel 3
+Release:	%mkrel 4
 Group:		System/Libraries
 License:	LGPL
 URL:		http://sourceforge.net/projects/judy/
@@ -78,3 +78,21 @@ rm -rf %{buildroot}
 %{_libdir}/*.*a
 %{_mandir}/man3/*
 
+
+
+%changelog
+* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.5-3mdv2011.0
++ Revision: 665841
+- mass rebuild
+
+* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.5-2mdv2011.0
++ Revision: 606118
+- rebuild
+
+* Sat Feb 20 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.5-1mdv2010.1
++ Revision: 508776
+- import judy
+
+
+* Sat Feb 20 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.5-1mdv2010.0
+- initial Mandriva package
