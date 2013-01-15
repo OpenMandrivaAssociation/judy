@@ -1,0 +1,19 @@
+--- judy-1.0.5/configure.ac.bero	2013-01-15 23:12:25.451602261 +0100
++++ judy-1.0.5/configure.ac	2013-01-15 23:12:35.067487804 +0100
+@@ -3,13 +3,13 @@ AC_INIT(Judy, 1.0.5, dougbaskins@yahoo.c
+ 
+ AM_MAINTAINER_MODE
+ 
+-dnl Turn on automake, and pass it the PACKAGE_NAME and PACKAGE_VERSION, too.
+-AM_INIT_AUTOMAKE($PACKAGE_NAME, $PACKAGE_VERSION)
++dnl Turn on automake
++AM_INIT_AUTOMAKE
+ 
+ dnl Tell autoconf we want to keep our preprocessor defines in a header named
+ dnl config.h.  This keeps automake from passing a zillion -D directives to
+ dnl the C compiler.
+-AM_CONFIG_HEADER([config.h])
++AC_CONFIG_HEADERS([config.h])
+ 
+ dnl==========================================================================
+ dnl WARNING - WARNING - Shared Library Versioning - WARNING - WARNING

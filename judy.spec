@@ -5,12 +5,12 @@
 Summary:	A general purpose dynamic array implemented as a C callable library
 Name:		judy
 Version:	1.0.5
-Release:	%mkrel 4
+Release:	5
 Group:		System/Libraries
 License:	LGPL
 URL:		http://sourceforge.net/projects/judy/
 Source0:	http://downloads.sourceforge.net/project/judy/judy/Judy-%{version}/Judy-%{version}.tar.gz
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+Patch0:		judy-automake-1.13.patch
 
 %description
 Judy is a general purpose dynamic array implemented as a C callable library.
@@ -40,6 +40,7 @@ models and improves with very large data sets.
 %prep
 
 %setup -q
+%apply_patches
 
 %build
 rm -rf autom4te.cache
@@ -54,17 +55,6 @@ make
 rm -rf %{buildroot}
 
 %makeinstall_std
-
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
 
 %files -n %{libname}
 %defattr(-,root,root)
