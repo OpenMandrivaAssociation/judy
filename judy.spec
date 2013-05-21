@@ -1,14 +1,14 @@
-%define	major 1
+%define	major	1
 %define libname	%mklibname %{name} %{major}
-%define develname %mklibname -d %{name}
+%define devname %mklibname -d %{name}
 
 Summary:	A general purpose dynamic array implemented as a C callable library
 Name:		judy
 Version:	1.0.5
 Release:	5
 Group:		System/Libraries
-License:	LGPL
-URL:		http://sourceforge.net/projects/judy/
+License:	LGPLv2
+Url:		http://sourceforge.net/projects/judy/
 Source0:	http://downloads.sourceforge.net/project/judy/judy/Judy-%{version}/Judy-%{version}.tar.gz
 Patch0:		judy-automake-1.13.patch
 
@@ -26,63 +26,40 @@ Judy is a general purpose dynamic array implemented as a C callable library.
 Judy's speed and memory usage are typically better than other data storage
 models and improves with very large data sets.
 
-%package -n	%{develname}
+%package -n	%{devname}
 Summary:	Static library and header files for the libjudy library
 Group:		Development/C
 Provides:	%{name}-devel = %{version}
 Requires:	%{libname} = %{version}
 
-%description -n	%{develname}
+%description -n	%{devname}
 Judy is a general purpose dynamic array implemented as a C callable library.
 Judy's speed and memory usage are typically better than other data storage
 models and improves with very large data sets.
 
 %prep
-
 %setup -q
 %apply_patches
 
-%build
 rm -rf autom4te.cache
 rm -f configure
 autoreconf -fi
 
-%configure2_5x
+%build
+%configure2_5x \
+	--disable-static
 
 make
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
 %files -n %{libname}
-%defattr(-,root,root)
-%doc AUTHORS ChangeLog README
-%{_libdir}/*.so.%{major}*
+%{_libdir}/libJudy.so.%{major}*
 
-%files -n %{develname}
-%defattr(-,root,root)
+%files -n %{devname}
+%doc AUTHORS ChangeLog README
 %{_includedir}/*
 %{_libdir}/*.so
-%{_libdir}/*.*a
 %{_mandir}/man3/*
 
-
-
-%changelog
-* Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1.0.5-3mdv2011.0
-+ Revision: 665841
-- mass rebuild
-
-* Fri Dec 03 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.5-2mdv2011.0
-+ Revision: 606118
-- rebuild
-
-* Sat Feb 20 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.5-1mdv2010.1
-+ Revision: 508776
-- import judy
-
-
-* Sat Feb 20 2010 Oden Eriksson <oeriksson@mandriva.com> 1.0.5-1mdv2010.0
-- initial Mandriva package
