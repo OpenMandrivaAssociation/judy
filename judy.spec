@@ -39,7 +39,7 @@ models and improves with very large data sets.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 rm -rf autom4te.cache
 rm -f configure
