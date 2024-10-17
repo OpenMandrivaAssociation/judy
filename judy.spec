@@ -8,7 +8,7 @@ Version:	1.0.5
 Release:	15
 Group:		System/Libraries
 License:	LGPLv2
-Url:		http://sourceforge.net/projects/judy/
+Url:		https://sourceforge.net/projects/judy/
 Source0:	http://downloads.sourceforge.net/project/judy/judy/Judy-%{version}/Judy-%{version}.tar.gz
 Patch0:		judy-automake-1.13.patch
 
