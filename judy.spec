@@ -12,6 +12,11 @@ Url:		https://sourceforge.net/projects/judy/
 Source0:	http://downloads.sourceforge.net/project/judy/judy/Judy-%{version}/Judy-%{version}.tar.gz
 Patch0:		judy-automake-1.13.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 %description
 Judy is a general purpose dynamic array implemented as a C callable library.
 Judy's speed and memory usage are typically better than other data storage
